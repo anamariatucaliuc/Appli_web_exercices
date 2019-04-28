@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="TaskApp">
+<head>
+<title>Todo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body ng-controller="TaskCtrl">
+    <form ng-submit="addTask()">
+        Ajouter la task : <input type="text" ng-model="taskName">
+        <input type="submit" value="Ajouter" />
+    </form>
+    <span>On est à l'entree <b ng-bind="counter"></b></span>
+    <br>
+    <br>
+    
+    <div  ng-repeat="ta in taskSet">
+        <button ng-click="removeTask($index)">Supprimer</button>  
+        {{ $index + 1 }} <span ng-style="Taskcompleted($index)"> {{ ta }} </span>
+        <input type="checkbox" ng-model="checked[$index]">
+    </div>
+    <!-- <script src="assets/js/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="todo.js"></script>
+
+</body>
+</html>
